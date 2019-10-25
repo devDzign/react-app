@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {setAuthentication} from "../store/actions/actions";
+import { Link } from 'react-router-dom'
 
 
 class Header extends Component {
@@ -10,8 +11,8 @@ class Header extends Component {
     }
 
     renderAuthLabel = () => {
-        const authLabelConnexion = <a className="nav-link" href="#" onClick={this.handleLogged}>Connexion</a>;
-        const authLabelDeconnexion = <a className="nav-link" href="#" onClick={this.handleLogged}>Déconnexion</a>;
+        const authLabelConnexion = <Link className="nav-link" to="/login" onClick={this.handleLogged}>Connexion</Link>;
+        const authLabelDeconnexion = <Link className="nav-link" to="/logout" onClick={this.handleLogged}>Déconnexion</Link>;
 
         return !this.props.isAuth ? authLabelConnexion : authLabelDeconnexion;
     }
@@ -20,9 +21,9 @@ class Header extends Component {
 
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand" href="#">
+                <Link className="navbar-brand" to="/">
                     Navbar
-                </a>
+                </Link>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -38,14 +39,14 @@ class Header extends Component {
                 <div className="collapse navbar-collapse" id="navbarColor03">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">
+                            <Link className="nav-link" to="/">
                                 Home <span className="sr-only">(current)</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
+                            <Link className="nav-link" to="/ressources">
                                 Ressources
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav ml-auto">
