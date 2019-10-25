@@ -1,8 +1,17 @@
 import * as actionType from './actionTypes'
 
-export const setAuthentication = (isLoggedIn) => {
-}
 
+export const setAuthentication = (isLoggedIn) => {
+    console.log("setAuthentication:", isLoggedIn);
+    return (dispatch) => {
+        dispatch(
+            {
+                type: actionType.SET_AUTHENTICATION,
+                isLoggedIn: isLoggedIn
+            }
+        )
+    }
+}
 
 
 

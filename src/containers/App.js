@@ -1,10 +1,13 @@
 import React from 'react';
 
+import Header from "./Header";
+
 
 function App() {
   return (
     <>
-      <h1>Start react project with bootstrap simplex</h1>
+        <Header/>
+        <div className="container mt-5"></div>
     </>
   );
 }
