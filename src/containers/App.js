@@ -6,6 +6,8 @@ import Header from "./Header";
 import Home from '../components/Home'
 import Ressources from '../components/Ressources'
 
+import  RequireAuthentication  from '../helpers/RequireAuthentication'
+
 
 function App() {
   return (
@@ -14,7 +16,7 @@ function App() {
         <div className="container mt-5">
             <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route exact path="/ressources" component={Ressources}/>
+                <Route exact path="/ressources" component={RequireAuthentication(Ressources)}/>
             </Switch>
         </div>
     </>
