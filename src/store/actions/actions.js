@@ -26,6 +26,16 @@ export const  incrementActionCount = () => {
     }
 };
 
+export const addResources = () => {
+    return (dispatch) => {
+        dispatch(
+            {
+                type: actionType.ADD_RESOURCES
+            }
+        )
+    }
+}
+
 
 
 

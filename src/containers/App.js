@@ -4,7 +4,7 @@ import {Route, Switch} from 'react-router-dom'
 
 import Header from "./Header";
 import Home from '../components/Home'
-import Ressources from '../components/Ressources'
+import Ressources from '../components/resources/Ressources'
 
 import  RequireAuthentication  from '../helpers/RequireAuthentication'
 import TodoApp from "../components/todoList/TodoApp";
