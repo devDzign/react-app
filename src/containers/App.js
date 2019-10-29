@@ -17,7 +17,7 @@ function App() {
         <div className="container mt-5">
             <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route exact path="/todo-list" component={TodoApp}/>
+                <Route exact path="/todo-list" component={RequireAuthentication(TodoApp)}/>
                 <Route exact path="/resources" component={RequireAuthentication(Ressources)}/>
             </Switch>
         </div>

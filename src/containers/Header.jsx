@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {setAuthentication} from "../store/actions/actions";
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 class Header extends Component {
@@ -11,10 +11,27 @@ class Header extends Component {
     }
 
     renderAuthLabel = () => {
-        const authLabelConnexion = <Link className="nav-link" to="/login" onClick={this.handleLogged}>Connexion</Link>;
-        const authLabelDeconnexion = <Link className="nav-link" to="/logout" onClick={this.handleLogged}>Déconnexion</Link>;
+        const authLabelConnexion = <Link className="nav-link" to='/' onClick={this.handleLogged}>Connexion</Link>;
+        const authLabelDeconnexion = <Link className="nav-link" to='/' onClick={this.handleLogged}>Déconnexion</Link>;
 
         return !this.props.isAuth ? authLabelConnexion : authLabelDeconnexion;
+    }
+
+    renderLinkHeader = () => {
+        const linkAuth = <>
+            <li className="nav-item">
+                <Link className="nav-link" to="/resources">
+                    Ressources
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/todo-list">
+                    Todo List
+                </Link>
+            </li>
+        </>;
+
+        return this.props.isAuth ? linkAuth:false;
     }
 
     render() {
@@ -43,16 +60,7 @@ class Header extends Component {
                                 Home <span className="sr-only">(current)</span>
                             </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/resources">
-                                Ressources
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/todo-list">
-                               Todo List
-                            </Link>
-                        </li>
+                        {this.renderLinkHeader()}
                     </ul>
                     <ul className="navbar-nav ml-auto">
                         {this.renderAuthLabel()}

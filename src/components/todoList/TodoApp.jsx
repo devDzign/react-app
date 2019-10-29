@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+import { IconContext } from "react-icons";
+import { FaTrashAlt } from 'react-icons/fa';
+
 class TodoApp extends Component {
     state = {
         todoList: [],
@@ -58,10 +61,17 @@ class TodoApp extends Component {
     }
     renderTodoList = () => {
         return this.state.todoList.map((todo) => {
-            return (<div key={todo.key} className="list-group-item list-group-item-action flex-column align-items-start"
-                         onClick={() => this.removeTodo(todo)}>
-                {todo.text}
-            </div>)
+            return (
+
+                    <div key={todo.key} className="list-group-item list-group-item-action flex-column align-items-start">
+                        <h1>{todo.text}  <button className="btn btn-outline-danger mr-auto float-right" onClick={()=> this.removeTodo(todo)}>
+                            <FaTrashAlt />
+                        </button></h1>
+
+
+
+                </div>
+               )
         })
 
     }
