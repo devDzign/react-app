@@ -7,12 +7,14 @@ import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import rootReducer from './store/reducers/rootReducer'
 
+import { actionCounter } from './middlewares/actionCountLogger'
+
 import {BrowserRouter} from 'react-router-dom'
 
 import App from './containers/App';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk, actionCounter)));
 
 ReactDOM.render(
     <Provider store={store}>

@@ -9,9 +9,25 @@ export const setAuthentication = (isLoggedIn) => {
                 type: actionType.SET_AUTHENTICATION,
                 isLoggedIn: isLoggedIn
             }
-        )
+        );
     }
 }
+
+
+
+
+export const  incrementActionCount = () => {
+    return (dispatch) => {
+        dispatch(
+            {
+                type: actionType.INCREMENT_ACTION8COUNT
+            }
+        )
+    }
+};
+
+
+
 
 
 
